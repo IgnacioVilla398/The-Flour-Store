@@ -28,18 +28,20 @@ const WA_TEXT = "¡Hola The Flour Store! Quisiera realizar un pedido de hamburgu
 const wa = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
 /* Hamburguesas 1-5 = PNG recortados sin fondo · resto = JPG de ambiente */
+const BASE = import.meta.env.BASE_URL;
+
 const IMG = {
-  b1: "img/hamburguesa-1.png",
-  b2: "img/hamburguesa-2.png",
-  b3: "img/hamburguesa-3.png",
-  b4: "img/hamburguesa-4.png",
-  b5: "img/hamburguesa-5.png",
-  bread: "img/pan.png",
-  smash: "img/smash.jpg",
-  breakfast: "img/breakfast-meal.jpg",
-  sandwich: "img/sandwich.jpg",
-  burritos: "img/burritos.jpg",
-  fries: "img/papas-fritas.jpg",
+  b1: `${BASE}img/hamburguesa-1.png`,
+  b2: `${BASE}img/hamburguesa-2.png`,
+  b3: `${BASE}img/hamburguesa-3.png`,
+  b4: `${BASE}img/hamburguesa-4.png`,
+  b5: `${BASE}img/hamburguesa-5.png`,
+  bread: `${BASE}img/pan.png`,
+  smash: `${BASE}img/smash.jpg`,
+  breakfast: `${BASE}img/breakfast-meal.jpg`,
+  sandwich: `${BASE}img/sandwich.jpg`,
+  burritos: `${BASE}img/burritos.jpg`,
+  fries: `${BASE}img/papas-fritas.jpg`,
 };
 
 const NAV = [
