@@ -29,17 +29,17 @@ const wa = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURICompo
 
 /* Hamburguesas 1-5 = PNG recortados sin fondo · resto = JPG de ambiente */
 const IMG = {
-  b1: "/img/hamburguesa-1.png",
-  b2: "/img/hamburguesa-2.png",
-  b3: "/img/hamburguesa-3.png",
-  b4: "/img/hamburguesa-4.png",
-  b5: "/img/hamburguesa-5.png",   /* disponible (ya no se usa en la landing) */
-  bread: "/img/PAN.PNG",          /* fondo del héroe + tarjeta "Pan de papa, horneado hoy" */
-  smash: "/img/smash.jpg",
-  breakfast: "/img/breakfast-meal.jpg",
-  sandwich: "/img/sandwich.jpg",
-  burritos: "/img/burritos.jpg",
-  fries: "/img/papas-fritas.jpg", /* con guion medio y sin espacios */
+  b1: "img/hamburguesa-1.png",
+  b2: "img/hamburguesa-2.png",
+  b3: "img/hamburguesa-3.png",
+  b4: "img/hamburguesa-4.png",
+  b5: "img/hamburguesa-5.png",
+  bread: "img/pan.png",
+  smash: "img/smash.jpg",
+  breakfast: "img/breakfast-meal.jpg",
+  sandwich: "img/sandwich.jpg",
+  burritos: "img/burritos.jpg",
+  fries: "img/papas-fritas.jpg",
 };
 
 const NAV = [
