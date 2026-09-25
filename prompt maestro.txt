@@ -1,0 +1,78 @@
+Eres un desarrollador Frontend Senior y diseñador UX/UI experto en React, Tailwind CSS y Framer Motion. Tu objetivo es construir una landing page idéntica en estructura, diseño y distribución a la maqueta de referencia proporcionada, pero adaptada al 100% a la marca "The Flour Store".
+
+---
+
+### 1. INFORMACIÓN DE LA MARCA Y DATOS REALES
+- **Nombre:** The Flour Store
+- **Slogan / Propuesta de Valor:** "Ojo de Bife + Pan Artesanal"
+- **Ubicación:** Humahuaca 3853, Buenos Aires
+- **Horarios:** 
+  - Lunes a Domingo: 18:00 a 24:00 hs
+  - Sábados (Turno adicional): 12:00 a 16:00 hs
+- **Acciones principales:** Pedidos por WhatsApp y enlace a Menú/Delivery.
+
+---
+
+### 2. TRATAMIENTO DE IMÁGENES Y RECURSOS
+Debes mapear y colocar exactamente los archivos de imagen adjuntos en las secciones correspondientes:
+
+1. **Remoción de Fondos (PNG Transparentes / Flotantes):**
+   - Para las hamburguesas destacadas (`hamburguesa-1.jpg`, `hamburguesa-2.jpg`, `hamburguesa-3.jpg`, `hamburguesa-4.jpg`, `hamburguesa-5.jpg`), aplica un procesamiento CSS/Canvas o remoción de fondo vía IA para que queden totalmente transparentes en formato PNG recortado.
+   - **Efecto Flotante:** Colócalas sobre los contenedores de color azul y naranja, añadiendo un efecto de flotación suave mediante animación CSS/Framer Motion (`translateY` continuo de -8px a 8px) y una sombra paralela difuminada bajo la hamburguesa (`drop-shadow`).
+
+2. **Asignación de Imágenes por Sección (Idéntico a la maqueta original):**
+   - **Hero Principal (Arriba a la derecha):** Usa `hamburguesa-1.jpg` recortada en cuadrícula/composición.
+   - **Sección "Home Online Burgers" (Tarjetas superiores):**
+     - Producto 1 (Double Beef Burger): `hamburguesa-1.jpg`
+     - Producto 2 (Spicy Beef Burger): `hamburguesa-2.jpg`
+     - Producto 3 (Cheese Beef Burger): `hamburguesa-3.jpg`
+     - Producto 4 (Combo Cheese Burger): `hamburguesa-4.jpg`
+   - **Sección "We From Home Made" (Bento grid central):**
+     - Foto secundaria de la grilla: `smash.jpg` (proceso de smash en plancha).
+     - Foto miniatura flotante: `hamburguesa-5.jpg`.
+   - **Sección de Categorías Rápida (Bloques oscuros redondeados):**
+     - Breakfast / Combo Meals: `breakfast-meal.jpg`
+     - Sandwiches / Patty Melts: `sandwich.jpg`
+     - Burritos / Wraps: `burritos.jpg`
+     - Papas Fritas / Sides: `papas fritas.jpg`
+   - **Sección "Best Menu In Year" (Cards inferiores):**
+     - Card 1 (Double Beef Burger): `hamburguesa-1.jpg`
+     - Card 2 (Savory Beef Burger): `hamburguesa-2.jpg`
+   - **Banner "The King Burger" (Fondo oscuro de parrilla):**
+     - Usa la textura de plancha/parrilla o la imagen `smash.jpg` de fondo con overlay oscuro.
+
+---
+
+### 3. ESTRUCTURA Y PALETA DE COLORES (REPLICACIÓN EXACTA)
+
+- **Paleta de Colores:**
+  - Azul Oscuro / Navy (`#0E1B2E`): Usado en el Header, Hero superior y tarjetas oscuras del menú.
+  - Naranja Vivo (`#FA541C` / `#FF5722`): Usado en la sección de productos principales, botones CTA y el footer.
+  - Crema / Amarillo Cálido (`#FFF3E0` / `#FFE0B2`): Usado en la sección "We From Home Made" y "Best Menu".
+
+- **Secciones idénticas:**
+  1. **Header Sticky:** Logo "THE FLOUR STORE", navegación (`Home`, `Menu`, `Nosotros`), horario compacto y botón de WhatsApp.
+  2. **Hero:** Título `"SAVORY & DELICIOUS"` / `"OJO DE BIFE + PAN ARTESANAL"`.
+  3. **Grid Naranja de Menú:** 4 productos con precios, ratings de estrellas y botones de compra directa.
+  4. **Sección Home Made / Nosotros:** Muestra las métricas reales: `100% Ojo de Bife`, `Humahuaca 3853`, `Pan de Papa Casero`.
+  5. **Bento Grid de Categorías:** 5 cajas oscuras redondeadas con fotos gastronómicas.
+  6. **Best Menu / Lanzamientos:** Sección crema con tarjetas destacadas.
+  7. **Footer / Newsletter:** Formulario de suscripción, horarios de atención (`Lun-Dom 18-24hs | Sáb 12-16hs`) y links a redes sociales.
+
+---
+
+### 4. BOTÓN FLOTANTE DE WHATSAPP Y CONVERSIÓN
+
+- **Botón Flotante de WhatsApp:**
+  - Posiciona un botón fijo (`fixed bottom-6 right-6 z-50`) con el ícono oficial de WhatsApp en color verde brillante (`#25D366`) con animación de pulso continuo.
+  - Al hacer clic, redirige directamente a `https://wa.me/` cargado con un mensaje predeterminado: *"¡Hola The Flour Store! Quisiera realizar un pedido de hamburguesas."*
+- **Botones de Pedido en Tarjetas:**
+  - Todos los botones "Pedir Now" o "Order Now" deben abrir el chat de WhatsApp o integrar el flujo de pedido rápido.
+
+---
+
+### 5. EFECTOS VISUALES Y ANIMACIONES
+- **Efecto Glassmorphism:** Navbar con fondo translúcido y desenfoque (`backdrop-blur-md`).
+- **Hover en Cards:** Elevación suave (`translate-y-[-5px]`) con aumento de sombra.
+- **Transiciones:** Smooth scroll al hacer clic en los enlaces de navegación.
+- **Diseño Responsive:** Layout totalmente adaptado para teléfonos móviles (Mobile First) manteniendo la legibilidad y la escala de las hamburguesas flotantes.

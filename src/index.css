@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================ BASE ============================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply bg-navy font-sans text-white antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Compensa el header sticky al navegar por anclas */
+  section[id] {
+    @apply scroll-mt-28;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  ::selection {
+    background-color: #fa541c;
+    color: #fff;
+  }
+
+  /* Scrollbar de marca */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #fa541c transparent;
+  }
+  *::-webkit-scrollbar { width: 10px; height: 10px; }
+  *::-webkit-scrollbar-track { background: #0e1b2e; }
+  *::-webkit-scrollbar-thumb {
+    background: #fa541c;
+    border: 2px solid #0e1b2e;
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover { background: #ff5722; }
+
+  /* Accesibilidad: respeta a quien desactiva animaciones */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ======================== COMPONENTES ========================= */
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5; }
+
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+           text-sm font-bold transition-all duration-300
+           hover:-translate-y-[3px] active:translate-y-0;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-[5px] hover:shadow-burger;
+  }
+
+  .glass { @apply border border-white/10 bg-navy/70 backdrop-blur-md; }
+
+  .title-xl { @apply font-display text-4xl leading-[0.95] tracking-tight sm:text-5xl; }
+
+  .eyebrow { @apply text-[11px] font-bold uppercase tracking-[0.2em]; }
+
+  .burger-float { filter: drop-shadow(0 28px 30px rgba(0, 0, 0, 0.55)); }
+
+  .floor-shadow {
+    @apply pointer-events-none absolute bottom-4 left-1/2 h-6 w-3/5
+           -translate-x-1/2 rounded-[50%] bg-black/60 blur-2xl;
+  }
+}
+
+/* ========================== UTILIDADES ======================== */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .no-tap-highlight { -webkit-tap-highlight-color: transparent; }
+  .png-crisp {
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+  }
+}
