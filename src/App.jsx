@@ -56,9 +56,11 @@ const PRODUCTS = [
   { name: "Double Beef Burger", desc: "Doble ojo de bife, cheddar x2 y pan de papa casero.", price: "$12.900", rating: 4.9, reviews: 128, img: IMG.b1, tag: "Más pedida" },
   { name: "Spicy Beef Burger",  desc: "Ojo de bife, jalapeños frescos y salsa picante ahumada.", price: "$11.500", rating: 4.7, reviews: 94,  img: IMG.b2 },
   /* hamburguesa-3 es vertical (408x612): con el marco a ras del recuadro
-     (`top-0 bottom-0`) la foto entra completa y ocupa todo el alto disponible,
-     sin salirse del rectángulo navy. */
-  { name: "Cheese Beef Burger", desc: "Ojo de bife, triple cheddar y cebolla caramelizada.", price: "$11.900", rating: 4.8, reviews: 112, img: IMG.b3, frame: "top-0 bottom-0" },
+     (`top-0 bottom-2`) la foto entra completa y ocupa casi todo el alto disponible
+     sin salirse del rectángulo navy ni siquiera en el punto más bajo del flotado
+     (el `bottom-2` = 8px cubre justo la amplitud de ±8px de `float`).
+     `featured` agranda ese recuadro para que destaque en la cuadrícula. */
+  { name: "Cheese Beef Burger", desc: "Ojo de bife, triple cheddar y cebolla caramelizada.", price: "$11.900", rating: 4.8, reviews: 112, img: IMG.b3, frame: "top-0 bottom-2", featured: true },
   { name: "Combo Cheese Burger",desc: "Burger + papas rústicas + bebida. Ideal para compartir.", price: "$15.900", rating: 4.9, reviews: 76, img: IMG.b4, tag: "Combo" },
 ];
 
@@ -299,15 +301,9 @@ function Hero() {
             </p>
           </div>
 
-          {/* Rating promedio: la hamburguesa decorativa va dentro de la tarjeta,
-              más grande y corrida hacia la izquierda para ganar presencia visual. */}
-          <div className="relative flex flex-col justify-center overflow-hidden rounded-[2rem] bg-cream p-6 text-navy shadow-soft">
-            <motion.img
-              {...float(0.6)}
-              src={IMG.b3}
-              alt="Hamburguesa con salsa y pickles"
-              className="pointer-events-none absolute right-8 top-3 h-24 w-auto object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,.35)] sm:right-10 sm:h-28"
-            />
+          {/* Rating promedio: tarjeta sólo con el número y las estrellas
+              (se quitó la hamburguesa decorativa que iba arriba a la derecha). */}
+          <div className="relative flex flex-col justify-center rounded-[2rem] bg-cream p-6 text-navy shadow-soft">
             <p className="font-display text-4xl leading-none">4.9</p>
             <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-navy/60">
               Rating promedio
@@ -359,8 +355,11 @@ function MenuGrid() {
                   se posiciona en absoluto —con altura resuelta— y la imagen se ajusta con
                   `object-contain`: nunca tapa el nombre ni la descripción, y con el marco
                   por dentro del recuadro la foto queda siempre contenida en él.
-                  La caja es h-52 para que las fotos verticales puedan verse grandes. */}
-              <div className="relative mb-6 h-52 rounded-[1.25rem] bg-navy">
+                  La caja es h-52 para que las fotos verticales puedan verse grandes.
+                  La tarjeta marcada como `featured` (Cheese Beef Burger) agranda su
+                  recuadro un 8% desde `sm` —vía transform, así no descoloca la cuadrícula—
+                  y suma un aro flame para destacar entre las cuatro. */}
+              <div className={`relative mb-6 h-52 rounded-[1.25rem] bg-navy ${p.featured ? "z-10 shadow-burger ring-2 ring-flame sm:scale-[1.08]" : ""}`}>
                 <div aria-hidden className="absolute inset-x-6 top-6 h-24 rounded-full bg-flame/25 blur-2xl" />
                 <div className={`absolute inset-x-0 transition-transform duration-500 group-hover:scale-[1.05] ${p.frame ?? "-top-2 bottom-0"}`}>
                   <motion.img
@@ -383,7 +382,7 @@ function MenuGrid() {
               <p className="mt-1 text-[11px] text-navy/45">{p.reviews} reseñas</p>
 
               <WaButton text={`¡Hola The Flour Store! Quisiera pedir una ${p.name}.`} className="mt-4 w-full !bg-navy hover:!bg-flame">
-                Pedir Now
+                Pedí ya
               </WaButton>
             </motion.article>
           ))}
@@ -600,7 +599,7 @@ function BestMenu() {
                 <div className="mt-5 flex flex-wrap items-center gap-4">
                   <span className="font-display text-3xl text-flame">{b.price}</span>
                   <WaButton text={`¡Hola The Flour Store! Quisiera pedir una ${b.name}.`} className="!bg-navy hover:!bg-flame">
-                    Pedir Now
+                    Pedí ya
                   </WaButton>
                 </div>
               </div>
